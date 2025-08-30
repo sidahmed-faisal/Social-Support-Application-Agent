@@ -26,55 +26,56 @@ It ingests applicant documents, validates and featurizes data, predicts eligibil
 
 ## Project Structure
 
+```
 Social Support Application Agent/
 ├── README.md
 ├── requirements.txt
-├── docker-compose.yml
-├── Dockerfile
 ├── data_syntethizer.py
-├── eligibility_model.pkl # produced by model training
+├── eligibility_model.pkl
 ├── process_application.py
-├── reports/ # generated TXT reports (per applicant)
+├── Dockerfile
+├── docker-compose.yml
+├── synthetic_data/
+│   ├── assets_liabilities/
+│   ├── bank_statements/
+│   ├── credit_reports/
+│   ├── emirates_ids/
+│   └── test_data/
 ├── api/
-│ ├── init.py
-│ ├── chatbot.py # LlamaIndex RAG over reports/
-│ └── server.py # /process (uploads), /chat (RAG)
+│   ├── __init__.py
+│   ├── chatbot.py
+│   └── server.py
 ├── database/
-│ ├── init.py
-│ └── qdrant_client.py # Qdrant storage/search helpers
+│   ├── __init__.py
+│   └── qdrant_client.py
 ├── file_processor/
-│ ├── init.py
-│ ├── assets_liabilities_processor.py
-│ ├── bank_statement_processor.py
-│ ├── credit_report_processor.py
-│ ├── emirates_id_processor.py
-│ └── file_processor.py
-├── frontend/
-│ └── app.py # Streamlit UI
+│   ├── __init__.py
+│   ├── assets_liabilities_processor.py
+│   ├── bank_statement_processor.py
+│   ├── credit_report_processor.py
+│   ├── emirates_id_processor.py
+│   └── file_processor.py
 ├── model_training/
-│ ├── init.py
-│ ├── eligibility_classifier.py
-│ ├── test_classifier.py
-│ └── train_eligibility_classifier.py
+│   ├── __init__.py
+│   ├── eligibility_classifier.py
+│   ├── test_classifier.py
+│   └── train_eligibility_classifier.py
 ├── orchestration/
-│ ├── init.py
-│ ├── graph.py
-│ ├── state.py
-│ └── nodes/
-│ ├── build_features.py
-│ ├── decide_and_recommend.py
-│ ├── ingest_extract.py
-│ ├── score_eligibility.py
-│ ├── summarize_for_ui.py
-│ ├── validate_consistency.py
-│ └── vector_store_and_similar.py
-└── synthetic_data/
-├── assets_liabilities/
-├── bank_statements/
-├── credit_reports/
-├── emirates_ids/
-└── test_data/
-
+│   ├── __init__.py
+│   ├── graph.py
+│   ├── state.py
+│   └── nodes/
+│       ├── build_features.py
+│       ├── decide_and_recommend.py
+│       ├── ingest_extract.py
+│       ├── score_eligibility.py
+│       ├── summarize_for_ui.py
+│       ├── validate_consistency.py
+│       └── vector_store_and_similar.py
+├── utils/
+│   ├── __init__.py
+│   └── ollama_utils.py
+```
 ---
 
 ## What You Get
