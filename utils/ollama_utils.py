@@ -24,7 +24,7 @@ class OllamaClient:
         return response.json().get("response", "")
     
     def extract_text_from_pdf(self, pdf_path: str, prompt: str) -> str:
-        """Extract text from PDF using Gemma3"""
+        """Extract text from PDF using qwen2.5vl:3b"""
         # For PDFs, we'll read the text and send to LLM
         import PyPDF2
         

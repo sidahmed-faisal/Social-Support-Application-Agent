@@ -58,7 +58,6 @@ async def process(files: List[UploadFile] = File(...)):
         init_state = {"file_paths": saved_paths}
         result = graph_app.invoke(init_state)
 
-        # Return only the requested fields
         decision = result.get("decision")
         final_summary = result.get("final_summary")
 
@@ -84,11 +83,10 @@ async def process(files: List[UploadFile] = File(...)):
             pass
 
 
-# -------- NEW: Chat/RAG endpoint --------
 
 class ChatRequest(BaseModel):
     message: str
-    directory: Optional[str] = "reports"  # default to your generated reports folder
+    directory: Optional[str] = "reports"
 
 @app.post("/chat")
 def chat_rag(req: ChatRequest):

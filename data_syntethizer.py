@@ -228,7 +228,6 @@ def generate_applicant_profile():
     return profile
 
 # --- (bank statement, assets/liabilities, credit report functions unchanged) ---
-# [Keep the same as in previous version, only difference is form removed]
 def generate_bank_statement(profile):
     """Generate synthetic bank statement (UAE ranges) with bank_name as a CSV column on every row."""
     transactions = []
