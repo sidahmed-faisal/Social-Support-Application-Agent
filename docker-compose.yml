@@ -1,0 +1,50 @@
+version: "3.9"
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: social-support-api
+    ports:
+      - "8000:8000"
+    environment:
+      QDRANT_HOST: qdrant
+      QDRANT_PORT: "6333"
+      # Optional: pass through an Ollama URL if you run it separately
+      # OLLAMA_BASE_URL: "http://host.docker.internal:11434"
+    depends_on:
+      - qdrant
+    volumes:
+      - ./:/app
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: social-support-web
+    command: >
+      bash -lc "streamlit run frontend/app.py
+      --server.address 0.0.0.0
+      --server.port 3000"
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
+      - qdrant
+    volumes:
+      - ./:/app
+
+
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: qdrant
+    restart: unless-stopped
+    ports:
+      - "6333:6333"   # REST
+      - "6334:6334"   # gRPC
+    volumes:
+      - qdrant_storage:/qdrant/storage
+
+volumes:
+  qdrant_storage:

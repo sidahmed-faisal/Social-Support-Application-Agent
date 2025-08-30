@@ -1,0 +1,6 @@
+monthly_income,family_size,employment_status,housing_type,marital_status,has_disability,nationality,credit_score,net_worth
+16554,1,Employed,Rented,Married,False,Filipino,655,378858
+18104,6,Employed,Rented,Married,False,Pakistani,618,-71433
+17116,1,Employed,Rented,Single,False,Indian,708,488859
+18874,3,Unemployed,Rented,Single,False,UAE,518,-63528
+10808,1,Employed,Owned,Married,False,Indian,714,588482

@@ -1,0 +1,42 @@
+# Ignore Python package files and folders
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Python egg and distribution files
+*.egg
+*.egg-info/
+dist/
+build/
+*.manifest
+*.spec
+
+# pip and poetry files
+pip-wheel-metadata/
+*.whl
+*.lock
+poetry.lock
+
+# Site packages (do not upload installed packages)
+lib/
+Lib/
+site-packages/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore any other Python package artifacts
+*.pyo
+*.pyd
+
+#
