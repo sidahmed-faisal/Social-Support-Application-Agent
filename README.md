@@ -83,7 +83,8 @@ Social Support Application Agent/
 - **FastAPI** service (`/process`, `/chat`)
 - **Streamlit** UI (file intake + chatbot)
 - **LangGraph** orchestration (ingest → validate → features → score → decide → enablement → summarize → store)
-- **Qdrant** vector storage + **LlamaIndex** RAG over `reports/`
+- **Qdrant** vector storage to store applicants data
+- **LlamaIndex** RAG over `reports/`
 - **Ollama**-backed generation (enablement, summaries, comprehensive reports)
 
 ---
