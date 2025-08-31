@@ -114,7 +114,10 @@ This is the easiest way to run everything.
 ```bash
 docker compose up --build
 ```
-
+2) **Change the base url in on the frontend's API Settings to:**
+```bash
+http://api:8000
+```
 ## Open:
 
 * Streamlit UI → http://localhost:3000
@@ -123,7 +126,7 @@ docker compose up --build
 
 * Qdrant REST → http://localhost:6333
 
-* The Streamlit UI’s sidebar “API Base URL” should be http://localhost:8000.
+* The Streamlit UI’s sidebar “API Base URL” should be http://api:8000
 
 ---
 
@@ -258,59 +261,6 @@ Backend endpoint: `POST /chat` with `{"message":"...", "directory":"reports"}`.
 
 ---
 
-## Docker Compose (Reference)
-
-**docker-compose.yml (excerpt):**
-```yaml
-version: "3.9"
-
-services:
-  api:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: social-support-api
-    ports:
-      - "8000:8000"
-    environment:
-      QDRANT_HOST: qdrant
-      QDRANT_PORT: "6333"
-      # OLLAMA_BASE_URL: "http://host.docker.internal:11434"  # if Ollama runs on host
-    depends_on:
-      - qdrant
-
-  web:
-    build:
-      context: .
-    container_name: social-support-web
-    command: >
-      bash -lc "streamlit run frontend/app.py
-      --server.address 0.0.0.0
-      --server.port 3000"
-    ports:
-      - "3000:3000"
-    depends_on:
-      - api
-      - qdrant
-
-  qdrant:
-    image: qdrant/qdrant:latest
-    container_name: qdrant
-    restart: unless-stopped
-    ports:
-      - "6333:6333"   # REST
-      - "6334:6334"   # gRPC
-    volumes:
-      - qdrant_storage:/qdrant/storage
-
-volumes:
-  qdrant_storage:
-```
-
-**Run all services:**
-```bash
-docker compose up --build
-```
 
 ---
 
