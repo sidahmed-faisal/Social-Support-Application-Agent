@@ -1,11 +1,11 @@
 import requests
 import json
 import base64
-import re
+import re, os
 from typing import Dict, Any, List
 
 class OllamaClient:
-    def __init__(self, base_url="http://localhost:11434"):
+    def __init__(self, base_url=os.environ.get("OLLAMA_BASE_URL", "http://localhost:11434")):
         self.base_url = base_url
     
     def extract_text_from_image(self, image_path: str, prompt: str) -> str:

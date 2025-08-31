@@ -9,10 +9,12 @@ services:
     ports:
       - "8000:8000"
     environment:
-      QDRANT_HOST: qdrant
+      QDRANT_HOST: "localhost"
       QDRANT_PORT: "6333"
       # Optional: pass through an Ollama URL if you run it separately
-      # OLLAMA_BASE_URL: "http://host.docker.internal:11434"
+      OLLAMA_BASE_URL: "http://host.docker.internal:11434"
+      API_BASE_URL: "http://api:8000"
+
     depends_on:
       - qdrant
     volumes:
@@ -30,14 +32,17 @@ services:
       --server.port 3000"
     ports:
       - "3000:3000"
+    environment:
+      # Set Streamlit to use a writable directory for uploads
+      STREAMLIT_SERVER_FILE_WATCHER_TYPE: none
+      # Set the API endpoint for the web container
+      API_BASE_URL: "http://api:8000"
     depends_on:
       - api
       - qdrant
     volumes:
       - ./:/app
-    environment:
-      # Set Streamlit to use a writable directory for uploads
-      STREAMLIT_SERVER_FILE_WATCHER_TYPE: none
+
 
 
   qdrant:

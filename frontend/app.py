@@ -1,12 +1,13 @@
 import streamlit as st
-import requests
+import requests, os
 from typing import List
 
+API_URL = os.environ.get("API_Base_URL", "http://localhost:8000")
 st.set_page_config(page_title="Social Support AI — Chatbot & Intake", layout="wide")
 
 # ---------------- Sidebar: API config ----------------
 st.sidebar.title("⚙️ API Settings")
-api_base = st.sidebar.text_input("API Base URL", value="http://localhost:8000", help="Root URL where FastAPI is running")
+api_base = st.sidebar.text_input("API Base URL", value=API_URL, help="Root URL where FastAPI is running")
 process_url = f"{api_base}/process"
 chat_url = f"{api_base}/chat"
 
