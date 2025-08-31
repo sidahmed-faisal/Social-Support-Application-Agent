@@ -145,7 +145,7 @@ pip install -r requirements.txt
 
 #### Windows (PowerShell):
 ```bash
-py -3.11 -m venv .venv
+python -m venv myenv
 .\.venv\Scripts\Activate.ps1
 python -m pip install --upgrade pip
 pip install -r requirements.txt
@@ -159,7 +159,7 @@ ollama serve
 
 # pull models used by this project
 ollama pull qwen2.5vl:3b
-ollama pull all-minilm
+ollama pull all-minilm:latest
 ```
 
 ### 3) Start Qdrant (Container)
