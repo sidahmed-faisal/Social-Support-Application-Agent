@@ -26,7 +26,7 @@ except Exception:
 
 # ---- Configuration ----
 _DEFAULT_DIR = "reports"
-_OLLAMA_BASE_URL = os.environ.get("OLLAMA_BASE_URL", "https://1ecf76149310.ngrok-free.app")
+_OLLAMA_BASE_URL = os.environ.get("OLLAMA_BASE_URL", "http://localhost:11434")
 _LLM_MODEL = os.environ.get("OLLAMA_LLM_MODEL", "qwen2.5vl:3b")          # text-capable
 _EMBED_MODEL = os.environ.get("OLLAMA_EMBED_MODEL", "all-minilm")          # small, fast
 

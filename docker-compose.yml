@@ -23,6 +23,7 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: social-support-web
+    user: root  # Override to run as root for file upload permissions
     command: >
       bash -lc "streamlit run frontend/app.py
       --server.address 0.0.0.0
@@ -34,6 +35,9 @@ services:
       - qdrant
     volumes:
       - ./:/app
+    environment:
+      # Set Streamlit to use a writable directory for uploads
+      STREAMLIT_SERVER_FILE_WATCHER_TYPE: none
 
 
   qdrant:
