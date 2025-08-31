@@ -31,8 +31,7 @@ _LLM_MODEL = os.environ.get("OLLAMA_LLM_MODEL", "qwen2.5vl:3b")          # text-
 _EMBED_MODEL = os.environ.get("OLLAMA_EMBED_MODEL", "all-minilm")          # small, fast
 
 
-# Simple in-memory cache per directory to avoid rebuilding on each request
-_INDEX_CACHE: dict[str, VectorStoreIndex] = {}
+
 
 
 def _configure_llamaindex() -> None:
@@ -57,14 +56,11 @@ def _load_documents_from_dir(directory: str) -> List:
 def _get_or_build_index(directory: str) -> VectorStoreIndex:
     """Return a cached index for directory; build if missing."""
     directory = directory or _DEFAULT_DIR
-    key = os.path.abspath(directory)
-    if key in _INDEX_CACHE:
-        return _INDEX_CACHE[key]
+
 
     _configure_llamaindex()
     docs = _load_documents_from_dir(directory)
     index = VectorStoreIndex.from_documents(docs)
-    _INDEX_CACHE[key] = index
     return index
 
 
