@@ -19,6 +19,8 @@ class EmiratesIDProcessor:
                         - marital_status (string: Single/Married/Divorced)
                         - has_disability (boolean)
                         - address (string)
+
+                        if for any field the information is not available or the field not available, return "Unknown" or 0 for numeric fields.
                         """
             
             extracted_data = self.ollama.extract_text_from_image(file_path, prompt)

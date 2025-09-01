@@ -12,6 +12,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+testvenv/
 
 # Python egg and distribution files
 *.egg
@@ -39,4 +40,5 @@ site-packages/
 *.pyo
 *.pyd
 
-#
+# Ignore environment variable files
+.env

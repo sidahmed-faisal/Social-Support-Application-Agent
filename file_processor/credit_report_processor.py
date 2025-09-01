@@ -18,16 +18,7 @@ class CreditReportProcessor:
             - monthly_income_reported (float, in AED)
             - housing_type (string: Owned, Rented, Shared, or Unknown)
 
-            
-            Example response:
-            {
-            "emirates_id": "784-1990-1234567-1",
-            "applicant_name": "John Doe"
-            "credit_score": 750,
-            "total_credit_limit": 50000.0,
-            "total_outstanding": 12000.0,
-            "monthly_income_reported": 15000.0,
-            "housing_type": "Rented",
+            if for any field the information is not available or the field not available, return "Unknown" or 0 for numeric fields.
             }"""
             
             extracted_data = self.ollama.extract_text_from_pdf(file_path, prompt)
