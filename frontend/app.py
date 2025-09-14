@@ -21,15 +21,17 @@ left_col, right_col = st.columns([1, 2], gap="large")
 with left_col:
     st.header("📥 Applicant Intake")
     st.write("Upload **exactly four** files:")
+    id_file = st.file_uploader("Emirates ID (.png / .jpg / .jpeg)", type=["png", "jpg", "jpeg"], key="id_file")
     assets_file = st.file_uploader("Assets & Liabilities (.xlsx / .xls)", type=["xlsx", "xls"], key="assets_file")
     bank_file = st.file_uploader("Bank Statement (.csv)", type=["csv"], key="bank_file")
     credit_file = st.file_uploader("Credit Report (.pdf)", type=["pdf"], key="credit_file")
-    id_file = st.file_uploader("Emirates ID (.png / .jpg / .jpeg)", type=["png", "jpg", "jpeg"], key="id_file")
 
     if "decision_status" not in st.session_state:
         st.session_state.decision_status = ""
     if "final_summary" not in st.session_state:
         st.session_state.final_summary = ""
+    if "inconsistencies" not in st.session_state:
+        st.session_state.inconsistencies = []
 
     def _mime_for(file):
         if not file:
@@ -67,9 +69,9 @@ with left_col:
                 st.error(f"API error {resp.status_code}: {resp.text}")
             else:
                 data = resp.json()
-                decision = data.get("decision") or {}
-                st.session_state.decision_status = str(decision.get("status", ""))
+                st.session_state.decision_status = str(data.get("decision", ""))
                 st.session_state.final_summary = str(data.get("final_summary", ""))
+                st.session_state.inconsistencies = st.session_state.inconsistencies = str(data.get("inconsistencies", ""))
                 st.success("Processed successfully. See the results below.")
 
         except Exception as e:
@@ -77,6 +79,7 @@ with left_col:
 
     st.subheader("🧾 Results")
     st.text_area("Decision Status", value=st.session_state.decision_status, height=60, key="decision_status_view")
+    st.text_area("inconsistencies", value=st.session_state.inconsistencies, height=220, key="inconsistencies_view")
     st.text_area("Final Summary", value=st.session_state.final_summary, height=220, key="final_summary_view")
 
 # ---------------- Right: Chatbot ----------------

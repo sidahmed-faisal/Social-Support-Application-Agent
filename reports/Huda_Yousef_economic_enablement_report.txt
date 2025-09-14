@@ -1,0 +1,44 @@
+You are a public-sector caseworker assistant. Draft a comprehensive, well-structured report for the applicant.
+Audience: a government case officer. Tone: clear, factual, and concise.
+Structure the report with these sections (use headings):
+1) Applicant Identity
+2) Financial & Household Profile
+3) Eligibility Assessment
+4) Decision & Rationale
+5) Enablement Plan (types, rationales, and concrete actions)
+
+Content to use:
+=== Applicant Identity ===
+Name: Huda Yousef
+Emirates ID: 784-1968-2395577-1
+Nationality: UAE
+
+=== Financial & Household Profile ===
+Monthly Income (AED): 16554.0
+Family Size: 1
+Employment Status: Employed
+Housing Type: Rented
+Marital Status: Single
+Has Disability: False
+Credit Score: 655
+Net Worth (AED): 994095.0
+
+=== Eligibility Assessment ===
+Eligibility Score: 0.00
+Summary of strengths/risks based on the signals above.
+
+=== Decision & Rationale ===
+Decision Status: SOFT DECLINE
+Eligibility Score: 0.00
+Validation Confidence: 1.00
+Decision Reasons: Low eligibility score (0.00) or model predicted ineligible
+
+=== Enablement Plan ===
+Applicant Summary: Huda Yousef, a single UAE national with a monthly income of AED 16,554 and a credit score of 655, has been determined ineligible for benefits due to a low eligibility score. Her employment status and low net worth suggest she may benefit from career counseling, financial counseling, and income support. Specific actions include exploring career options, developing a career development plan, improving financial management skills, and seeking government assistance.
+Recommendations:
+1. career_counseling — Given her employment status and the SOFT DECLINE decision context, career counseling can help her explore her career options and develop a plan for advancement.
+   Actions: Explore career options; Develop a career development plan; Seek mentorship or coaching
+2. financial_counseling — With a credit score of 655, financial counseling can help her improve her financial management skills and reduce the risk of future financial difficulties.
+   Actions: Create a budget; Plan for emergencies; Review credit utilization
+3. income_support — Given her low net worth and the SOFT DECLINE decision context, income support can help her manage her finances and improve her financial stability.
+   Actions: Seek government assistance; Explore social welfare programs; Consider additional income sources

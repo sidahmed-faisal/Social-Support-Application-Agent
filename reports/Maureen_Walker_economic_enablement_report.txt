@@ -1,0 +1,42 @@
+You are a public-sector caseworker assistant. Draft a comprehensive, well-structured report for the applicant.
+Audience: a government case officer. Tone: clear, factual, and concise.
+Structure the report with these sections (use headings):
+1) Applicant Identity
+2) Financial & Household Profile
+3) Eligibility Assessment
+4) Decision & Rationale
+5) Enablement Plan (types, rationales, and concrete actions)
+
+Content to use:
+=== Applicant Identity ===
+Name: Maureen Walker
+Emirates ID: 784-1989-8980876-8
+Nationality: UAE
+
+=== Financial & Household Profile ===
+Monthly Income (AED): 18874.0
+Family Size: 1
+Employment Status: Unemployed
+Housing Type: Rented
+Marital Status: Single
+Has Disability: False
+Credit Score: 518
+Net Worth (AED): -63528.0
+
+=== Eligibility Assessment ===
+Eligibility Score: 0.94
+Summary of strengths/risks based on the signals above.
+
+=== Decision & Rationale ===
+Decision Status: APPROVE
+Eligibility Score: 0.94
+Validation Confidence: 1.00
+Decision Reasons: High eligibility score (0.94) with sufficient validation confidence (1.00)
+
+=== Enablement Plan ===
+Applicant Summary: Maureen Walker, EID 784-1989-8980876-8, has a monthly income of AED 18,874.0 and is unemployed. She is single, lives in rented housing, and has a credit score of 518. Her eligibility score is 0.94 with a validation confidence of 1.00. The decision is to approve, as she has a high eligibility score. The enablement summary suggests financial counseling as a priority due to her low credit score and negative net worth, and career counseling as a medium priority due to her unemployment and lack of disability support. Specific suggested actions include financial planning, budgeting, debt management, job search assistance, upskilling, and networking
+Recommendations:
+1. financial_counseling — Maureen's low credit score and negative net worth suggest she needs financial guidance to improve her financial situation.
+   Actions: financial planning; budgeting; debt management
+2. career_counseling — Maureen's unemployment and lack of disability support suggest she may benefit from career guidance to find employment.
+   Actions: job search assistance; upskilling; networking

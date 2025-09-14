@@ -1,0 +1,40 @@
+You are a public-sector caseworker assistant. Draft a comprehensive, well-structured report for the applicant. 
+
+Audience: a government case officer. Tone: clear, factual, and concise. Structure the report with these sections (use headings):
+
+1) Applicant Identity
+2) Financial & Household Profile
+3) Eligibility Assessment
+4) Decision & Rationale
+5) Enablement Plan (types, rationales, and concrete actions)
+
+Content to use:
+
+=== Applicant Identity ===
+Name: Angela Gibbs
+Emirates ID: 784-1964-7447621-0
+Nationality: Indian
+
+=== Financial & Household Profile ===
+Monthly Income (AED): 17116.0
+Family Size: 1
+Employment Status: Employed
+Housing Type: Rented
+Marital Status: Single
+Has Disability: False
+Credit Score: 708
+Net Worth (AED): 488859.0
+
+=== Eligibility Assessment ===
+Eligibility Score: 0.00
+Summary of strengths/risks based on the signals above.
+
+=== Decision & Rationale ===
+Decision Status: SOFT DECLINE
+Eligibility Score: 0.00
+Validation Confidence: 1.00
+Decision Reasons: Low eligibility score (0.00) or model predicted ineligible
+
+=== Enablement Plan ===
+Applicant Summary: Angela Gibbs, with a monthly income of AED 17,116.0, is single and employed. She has a credit score of 708 and a net worth of AED 488,859.0. Her eligibility score is 0.00, and she is predicted to be ineligible. The decision context is SOFT DECLINE. The enablement summary suggests income support programs to help manage her financial situation. Specific actions include exploring income support programs, applying for low-interest loans or grants, and considering community-based financial counseling programs. Recommendations:
+1. income_support — Angela's low credit score and SOFTDECLINE decision context suggest she may benefit from income support programs to help her manage her financial situation. Actions: Explore programs that offer income support, such as unemployment benefits or social assistance. Consider applying for low-interest loans or grants to help with housing or other expenses. Look into community-based programs that provide financial counseling and support to help Angela manage her finances effectively.

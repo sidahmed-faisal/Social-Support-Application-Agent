@@ -1,0 +1,19 @@
+# Applicant Identity
+Name: Ali Hassan | EID: 784-1974-2014695-3 | Nationality: Filipino
+
+# Financial & Household Profile
+Income: 16554.0 AED | Family: 1 | Employment: Employed | Housing: Rented | Marital: Married | Disability: False | Credit: 655 | Net Worth: 287247.0
+
+# Eligibility Assessment
+Eligibility Score: 0.01
+
+# Decision & Rationale
+Decision: SOFT_DECLINE
+Reasons: Low eligibility score (0.01) or model predicted ineligible
+
+# Enablement Plan
+Summary: Ali Hassan, Emirates ID 784-1974-2014695-3, has a monthly income of AED 16,554.0, a family size of 1, employed, and rents. His eligibility score is 0.01, and he is model predicted ineligible. He has a credit score of 655 and net worth of AED 287,247.0. The decision is SOFT DECLINE due to a low eligibility score. Enablement recommendations include career counseling, financial counseling, and upskilling. Specific actions suggested are career counseling, financial counseling, and budgeting.
+1. career_counseling — Given Ali's employment status and the need for career development, career counseling can help him explore his career options and improve his employability. | Actions: career counseling; upskilling
+2. financial_counseling — Ali's credit score is below 600, which indicates a need for financial counseling to help him improve his financial situation. | Actions: financial counseling; budgeting
+3. income_support — Ali's monthly income is AED 16,554.0, which is above the threshold for income support. However, he may still benefit from additional financial assistance. | Actions: income support
+4. rental_support — Ali's housing type is 'Rented', and his family size is 1. While he does not qualify for rental support, he may still benefit from additional rental assistance. | Actions: rental support

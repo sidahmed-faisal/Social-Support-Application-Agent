@@ -61,11 +61,12 @@ def _build_enablement_prompt(validated: Dict[str, Any], decision: Dict[str, Any]
     ]
     decision_line = f"Decision Context: status={decision.get('status','REVIEW')}, score={decision.get('score',0):.2f}, confidence={decision.get('confidence',0):.2f}"
 
+    # Building prompt with fallback logic embedded
     return (
         "You are a caseworker assistant. Based on the applicant profile below, "
         "synthesize tailored **economic enablement** recommendations. Focus on actionable, "
         "practical steps within public-sector programs (training, job matching, career counseling, "
-        "financial counseling, rental support, income support, disability support). "
+        "financial counseling, rental support, income support if salary and  Net Worth are low, disability support). "
         "Be concise and impactful.\n\n"
         "Applicant Profile:\n"
         + "\n".join(profile_lines) + "\n"
@@ -75,14 +76,19 @@ def _build_enablement_prompt(validated: Dict[str, Any], decision: Dict[str, Any]
         '  "overall_summary": "string (2-3 sentences max)",\n'
         '  "enablement_recommendations": [\n'
         "    {\n"
-        '      "type": "training|job_match|career_counseling|financial_counseling|rental_support|income_support|disability_support|other",\n'
+        '      "type": "training|job_match|career_counseling|financial_counseling| income support|rental_support|disability_support|other",\n'
         '      "rationale": "string",\n'
         '      "suggested_actions": ["string", "string", "string"],\n'
         '      "priority": "high|medium|low"\n'
         "    }\n"
         "  ]\n"
         "}\n"
-        "Think step-by-step before producing the final JSON."
+        "Think step-by-step before producing the final JSON.\n"
+        "If there are no clear gaps or issues detected, generate recommendations as follows:\n"
+        "- If employment status is 'Employed', suggest career counseling, upskilling, or job matching.\n"
+        "- If credit score is below 600, recommend financial counseling.\n"
+        "- If housing type is 'Shared' and family size is 4 or more, suggest rental support.\n"
+        "If no clear gaps, suggest general career counseling and financial planning support."
     )
 
 def _synthesize_enablement(validated: Dict[str, Any], decision: Dict[str, Any]) -> Dict[str, Any]:

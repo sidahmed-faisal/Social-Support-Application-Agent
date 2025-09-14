@@ -58,8 +58,13 @@ async def process(files: List[UploadFile] = File(...)):
         init_state = {"file_paths": saved_paths}
         result = graph_app.invoke(init_state)
 
-        decision = result.get("decision")
+        decision = result.get("decision").get("status").replace("_", " ") if result.get("decision") else None
         final_summary = result.get("final_summary")
+        validated_data = result.get("validated", {})
+        
+        # Extract inconsistencies from validated data if present
+        inconsistencies = validated_data.get("_inconsistencies", [])
+
 
         if decision is None or final_summary is None:
             raise HTTPException(
@@ -69,7 +74,10 @@ async def process(files: List[UploadFile] = File(...)):
 
         return {
             "decision": decision,
-            "final_summary": final_summary
+            "final_summary": final_summary,
+            "result": result,
+            "inconsistencies": inconsistencies
+
         }
 
     except HTTPException:
